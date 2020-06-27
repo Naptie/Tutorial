@@ -1,0 +1,14 @@
+name: Tutorial
+author: Naptie
+version: 1.0.0-SNAPSHOT
+main: me.naptie.tutorial.Main
+api-version: "1.15"
+commands:
+  addition:
+    description: A command that does integer addition.
+    aliases: [jiafa, jia, add, jf]
+    usage: /<command> <number1> <number2> ...
+  subtraction:
+    description: A command that does integer subtraction.
+    aliases: [jianfa, jian, minus, jnf]
+    usage: /<command> <number1> <number2> ...
