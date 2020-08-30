@@ -2,7 +2,7 @@ name: Tutorial
 author: Naptie
 version: 1.0.0-SNAPSHOT
 main: me.naptie.tutorial.Main
-api-version: "1.15"
+api-version: "1.16"
 commands:
   addition:
     description: A command that does integer addition.

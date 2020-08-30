@@ -1,0 +1,20 @@
+join-message: "&a%player% has just joined the game."
+quit-message: "&e%player% has left the game."
+mobs:
+  - Sheep
+  - Cow
+  - Spider
+  - Creeper
+  - Zombie
+  - Skeleton
+  - Ender Dragon
+  - Wither
+users: # [Naptie] Level: 23; Age: 16; Gender: male
+  Naptie:
+    level: 23
+    age: 16
+    gender: male
+  9gh:
+    level: 24
+    age: -1
+    gender: unset
