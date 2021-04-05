@@ -12,3 +12,7 @@ commands:
     description: A command that does integer subtraction.
     aliases: [jianfa, jian, minus, jnf]
     usage: /<command> <number1> <number2> ...
+  inventory:
+    description: A command for players to open an inventory.
+    aliases: [inv]
+    usage: /<command>

@@ -1,0 +1,27 @@
+items:
+  0:
+    type: APPLE
+    amount: 1
+    name: "Bad Apple"
+    slot: 5
+    spawn: true
+    lore:
+      - "It's"
+      - "A"
+      - "&a&lBad apple."
+  1:
+    type: DIAMOND
+    amount: 64
+    name: "&b&lTreasure!"
+    slot: 8
+    spawn: true
+    lore:
+      - "&b&lA gift for you! <3"
+  2:
+    type: BLUE_ICE
+    amount: 48
+    name: "&b&lBlue Ice"
+    slot: 0
+    spawn: false
+    lore:
+      - "&a&lN.I.C.E."

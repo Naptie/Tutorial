@@ -1,6 +1,8 @@
 me\naptie\tutorial\Main.class
 me\naptie\tutorial\commands\Addition.class
 me\naptie\tutorial\listeners\PlayerQuit.class
+me\naptie\tutorial\listeners\PlayerJoin$1.class
 me\naptie\tutorial\listeners\PlayerJoin.class
 me\naptie\tutorial\commands\Subtraction.class
 me\naptie\tutorial\utils\CU.class
+me\naptie\tutorial\commands\Inv.class
