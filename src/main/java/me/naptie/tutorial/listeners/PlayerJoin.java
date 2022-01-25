@@ -2,6 +2,7 @@ package me.naptie.tutorial.listeners;
 
 import me.naptie.tutorial.Main;
 import me.naptie.tutorial.utils.CU;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,13 +13,17 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class PlayerJoin implements Listener {
+
+    private List<String> lastStr = new ArrayList<>();
 
     @EventHandler
     public boolean onPlayerJoin(PlayerJoinEvent event) {
@@ -27,6 +32,33 @@ public class PlayerJoin implements Listener {
         event.setJoinMessage(CU.t(Objects.requireNonNull(config.getString("join-message")).replace("%player%", player.getName())));
         player.sendMessage(CU.t("&aWelcome to our server!"));
         giveItems(player);
+        ScoreboardManager manager = Bukkit.getScoreboardManager();
+        assert manager != null;
+        Scoreboard scoreboard = manager.getNewScoreboard();
+        Objective obj = scoreboard.registerNewObjective("test", "dummy");
+        obj.setDisplayName(CU.t("&dWELCOME"));
+        obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+        obj.getScore(CU.t("You: &a" + player.getName())).setScore(6);
+        obj.getScore(CU.t("&ewww.phi.zone")).setScore(1);
+        player.setScoreboard(scoreboard);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstance(), () -> {
+            for (String str : lastStr) {
+                scoreboard.resetScores(str);
+            }
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String time = CU.t("Time: &a" + sdf.format(new Date()));
+            String health = CU.t("Health: &a" + player.getHealth());
+            String foodLevel = CU.t("Food: &a" + player.getFoodLevel());
+            String saturation = CU.t("Saturation: &a" + player.getSaturation());
+            lastStr.add(time);
+            lastStr.add(health);
+            lastStr.add(foodLevel);
+            lastStr.add(saturation);
+            obj.getScore(time).setScore(5);
+            obj.getScore(health).setScore(4);
+            obj.getScore(foodLevel).setScore(3);
+            obj.getScore(saturation).setScore(2);
+        }, 0, 20);
         return true;
     }
 
