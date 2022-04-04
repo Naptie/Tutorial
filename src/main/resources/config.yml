@@ -1,5 +1,6 @@
 join-message: "&a%player% has just joined the game."
 quit-message: "&e%player% has left the game."
+max-chat-distance: 2.5
 mobs:
   - Sheep
   - Cow

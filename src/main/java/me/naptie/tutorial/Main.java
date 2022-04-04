@@ -3,6 +3,7 @@ package me.naptie.tutorial;
 import me.naptie.tutorial.commands.Addition;
 import me.naptie.tutorial.commands.Inv;
 import me.naptie.tutorial.commands.Subtraction;
+import me.naptie.tutorial.listeners.PlayerChat;
 import me.naptie.tutorial.listeners.PlayerJoin;
 import me.naptie.tutorial.listeners.PlayerQuit;
 import org.bukkit.configuration.ConfigurationSection;
@@ -32,6 +33,7 @@ public class Main extends JavaPlugin {
         test();
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new PlayerQuit(), this);
+        getServer().getPluginManager().registerEvents(new PlayerChat(), this);
         Objects.requireNonNull(getCommand("addition")).setExecutor(new Addition());
         Objects.requireNonNull(getCommand("subtraction")).setExecutor(new Subtraction());
         Objects.requireNonNull(getCommand("inventory")).setExecutor(new Inv());
